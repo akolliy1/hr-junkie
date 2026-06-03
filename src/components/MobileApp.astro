@@ -2,9 +2,9 @@
 import SectionHeading from './SectionHeading.astro';
 
 const phones = [
-  { img: '/assets/phones/withdraw.svg', caption: 'Withdraw your earned wage seamlessly, anytime.' },
-  { img: '/assets/phones/payslip.svg', caption: 'View and Download your monthly payslips.' },
-  { img: '/assets/phones/leave.svg', caption: 'Request Leave, Upload Documents, etc.' },
+  { img: '/assets/phones/withdraw.webp', caption: 'Withdraw your earned wage seamlessly, anytime.' },
+  { img: '/assets/phones/payslip.webp', caption: 'View and Download your monthly payslips.' },
+  { img: '/assets/phones/leave.webp', caption: 'Request Leave, Upload Documents, etc.' },
 ];
 ---
 
@@ -27,7 +27,7 @@ const phones = [
     <div class="mt-14 grid gap-8 sm:grid-cols-3">
       {phones.map((phone) => (
         <div class="flex flex-col items-center">
-          <img src={phone.img} alt="" class="w-full max-w-xs" loading="lazy" />
+          <img src={phone.img} alt="" class="w-full max-w-xs" loading="lazy" decoding="async" />
           <p class="mt-5 max-w-[14rem] text-center text-sm font-medium text-brand-600">{phone.caption}</p>
         </div>
       ))}

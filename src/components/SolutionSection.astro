@@ -36,7 +36,7 @@ const { id, eyebrow, title, subtitle, image, imageAlt, imagePosition = 'center',
     />
 
     <div class="mt-12 overflow-hidden rounded-2xl">
-      <img src={image} alt={imageAlt} class="h-auto max-h-[600px] w-full object-cover" style={`object-position: ${imagePosition};`} width="1280" height="560" loading="lazy" />
+      <img src={image} alt={imageAlt} class="h-auto max-h-[600px] w-full object-cover" style={`object-position: ${imagePosition};`} width="1280" height="560" loading="lazy" decoding="async" />
     </div>
 
     <div class="mx-auto max-w-5xl">

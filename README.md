@@ -2,6 +2,8 @@
 
 A lightweight, SEO-friendly marketing site for **HR Junkie**, converted from the Figma design (`HR_Junkie.fig`).
 
+**Live demo:** [https://hr-junk.netlify.app](https://hr-junk.netlify.app)
+
 ## Stack
 
 - **[Astro](https://astro.build)** — ships zero JavaScript by default; static HTML for excellent SEO and performance
@@ -25,7 +27,14 @@ npm run build
 npm run preview
 ```
 
-Output is in `dist/` — deploy to any static host (Vercel, Netlify, Cloudflare Pages, etc.).
+Output is in `dist/` — deploy to any static host (Vercel, Netlify, Cloudflare Pages, etc.). This site is deployed on **Netlify** at [hr-junk.netlify.app](https://hr-junk.netlify.app).
+
+## Performance
+
+- **Optimized imagery** — all photos/illustrations are served as resized **WebP** (originals were oversized PNG/JPEG and base64-in-SVG assets). This cut the image payload from **~13 MB to ~600 KB (~95% smaller)**.
+- **Fast LCP** — the above-the-fold hero image loads eagerly with `fetchpriority="high"`; all other images are `loading="lazy"` + `decoding="async"`.
+- **No layout shift** — images carry explicit `width`/`height` (or fixed aspect boxes) to reserve space and avoid CLS.
+- **Zero client JS by default** — Astro renders static HTML, so pages are interactive immediately.
 
 ## Project structure
 
