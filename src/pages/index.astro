@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnnouncementBar from '../components/AnnouncementBar.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import SolutionSection from '../components/SolutionSection.astro';
+import NavyBanner from '../components/NavyBanner.astro';
+import MobileApp from '../components/MobileApp.astro';
+import Resources from '../components/Resources.astro';
+import NewsletterCTA from '../components/NewsletterCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="HR Junkie — We make HR & Payroll work across borders"
+  description="Streamline your HR & Payroll tasks, run payroll on time in multiple currencies, and automate compliance — all with HR Junkie."
+>
+  <AnnouncementBar />
+  <Header />
+  <main>
+    <Hero />
+    <FeatureGrid />
+
+    <SolutionSection
+      id="solutions"
+      eyebrow="Employee Payroll"
+      title='<span class="text-brand">Payroll</span> tools and solutions that bend, not break'
+      subtitle="No matter your use case or internal process, we help you deliver a fulfilling pay to your employees on time, accompanied with automated payslips."
+      image="/images/payroll-section.png"
+      imageAlt="HR professional managing payroll on a laptop"
+      cards={[
+        { title: 'Custom Schedules', description: 'Manage custom payroll schedules to fit your operational needs.', icon: '/assets/icons/payroll/custom-schedule.svg' },
+        { title: 'Split Payroll', description: 'Split payroll disbursement into multiple accounts without pesky transfer fees.', icon: '/assets/icons/payroll/split-payroll.svg' },
+        { title: 'Payroll API', description: 'Run our payroll engine right inside your own platform without hassle.', icon: '/assets/icons/payroll/payroll-api.png', badge: 'BETA' },
+      ]}
+    />
+
+    <NavyBanner
+      tag="For Consultants & Agencies"
+      title='Launch your own <span class="text-amber">Payroll business</span> today!'
+      description=""
+      features={[
+        { label: 'Fully Customizable', icon: '/assets/icons/consultants/fully-customizable.svg' },
+        { label: 'Developer Support', icon: '/assets/icons/consultants/developer-support.svg' },
+        { label: 'Enterprise Security', icon: '/assets/icons/consultants/enterprise-security.svg' },
+      ]}
+      primaryLabel="Request Early Access"
+      secondaryLabel="Contact Sales"
+      note="Adopt HR Junkie's <span class='text-amber'>White label</span> solution to get everything you need, fully customisable, to launch your own payroll business without spending time and resources building a payroll product."
+      image="/images/promo-dashboard.png"
+      imageAlt="HR Junkie payroll dashboard with employee analytics"
+      badge="NEW"
+    />
+
+    <SolutionSection
+      eyebrow="Statutory Remittance"
+      title='Easy <span class="text-brand">Compliance</span>, while you focus on excellence!'
+      subtitle="Go beyond just running your payroll, automate filing your payroll tax and employee pension with the right government agencies."
+      image="/images/compliance.jpg"
+      imageAlt="HR professional reviewing compliance on a tablet"
+      imagePosition="center 20%"
+      cards={[
+        { title: 'Payroll Tax', description: 'Put guaranteed compliance on autopilot with any tax service after every payroll run.', icon: '/assets/icons/statutory/payroll-tax.svg' },
+        { title: 'Employee Pension', description: 'Remit employee pension contributions without hassle and on time.', icon: '/assets/icons/statutory/employee-pension.svg' },
+        { title: 'NHF & NSITF', description: 'Easily automate NHF & NSITF contributions for your employees.', icon: '/assets/icons/statutory/nhf-nsitf.svg', badge: 'NEW!' },
+      ]}
+    />
+
+    <SolutionSection
+      eyebrow="HR Tools & Workflows"
+      title='Your HR tasks and workflows on <span class="text-brand">autopilot</span>'
+      subtitle="Become less busy and more strategic in creating a great place to work by streamlining time-consuming tasks with automated workflows."
+      image="/images/workflows.jpg"
+      imageAlt="Employee managing HR workflows on a tablet outdoors"
+      imagePosition="center 15%"
+      cardCols={6}
+      extraLink="And many more..."
+      cards={[
+        { title: 'Onboarding', description: 'Create self-guided onboarding workflow for new employees to get them started in record time.', icon: '/assets/icons/hr-tools/onboarding.svg' },
+        { title: 'Applicant Tracking System', description: 'Efficiently handle your recruitment and sieve through hundreds of applications with our ATS.', icon: '/assets/icons/hr-tools/ats.svg', badge: 'NEW!' },
+        { title: 'Information Management', description: 'Manage employee data and documents, assign assets and resources, all in one place.', icon: '/assets/icons/hr-tools/information-management.svg' },
+        { title: 'Requests Management', description: 'Manage all employee requests using smart policies that take care of all the diverse scenarios.', icon: '/assets/icons/hr-tools/requests-management.svg' },
+        { title: 'Custom Notifications', description: 'Create custom notifications for literally anything to notify an employee or group of employees.', icon: '/assets/icons/hr-tools/custom-notification.svg' },
+        { title: 'Reports & Analytics', description: 'Quickly generate any type of report with data from your organization with our custom report builder.', icon: '/assets/icons/hr-tools/reports-analytics.svg' },
+      ]}
+    />
+
+    <SolutionSection
+      eyebrow="Employee Benefits"
+      title='Put your <span class="text-brand">employees</span> front and center, always'
+      subtitle="It takes more than salaries and we know, that's why we have designed tools to help you setup custom employee benefits that your team deserves."
+      image="/images/employee.jpg"
+      imageAlt="Employee celebrating a successful milestone at work"
+      imagePosition="center 20%"
+      cards={[
+        { title: 'Statutory Benefits', description: 'Set up and manage statutory benefits like pension, NHF and NSITF with ease.', icon: '/assets/icons/benefits/statutory-benefits.svg' },
+        { title: 'Custom Benefits', description: 'Create and manage custom benefits and allowances your employees will love.', icon: '/assets/icons/benefits/custom-benefits.svg' },
+        { title: 'HR Junkie Rewards™', description: 'HR Junkie wants you to succeed, our initiatives reward HRs and employees that make the world of work thrive.', icon: '/assets/icons/benefits/paidhr-rewards.svg' },
+      ]}
+    />
+
+    <NavyBanner
+      tag="Earned Wage Access"
+      title={`Emergencies don't wait for <span class="text-amber">pay cheques!</span>`}
+      description="Give your employees access to up to 50% of their earned salary to sort out those issues that come before payday!"
+      features={[{ label: '0% Interest!' }, { label: 'No employer cost' }, { label: 'Benefit that matters' }]}
+      primaryLabel="Learn More"
+    />
+
+    <MobileApp />
+    <Resources />
+    <NewsletterCTA />
+
+    <section id="pricing" class="sr-only" aria-hidden="true">
+      <h2>Pricing</h2>
+      <p>Contact sales for HR Junkie pricing.</p>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

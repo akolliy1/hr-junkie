@@ -1,0 +1,72 @@
+---
+import Button from './Button.astro';
+
+interface Feature {
+  label: string;
+  icon?: string;
+}
+
+interface Props {
+  tag: string;
+  title: string;
+  description: string;
+  features: Feature[];
+  primaryLabel: string;
+  secondaryLabel?: string;
+  note?: string;
+  image?: string;
+  imageAlt?: string;
+  badge?: string;
+}
+
+const { tag, title, description, features, primaryLabel, secondaryLabel, note, image, imageAlt, badge } = Astro.props;
+---
+
+<section class="px-6 py-6 lg:px-8">
+  <div class="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-navy-900 px-8 py-10 lg:px-12 lg:py-12">
+    {badge && (
+      <span class="absolute right-0 top-0 rounded-bl-2xl bg-emerald-400 px-4 py-1 text-xs font-bold text-navy-900">{badge}</span>
+    )}
+    <div class:list={['grid items-center gap-10', image ? 'lg:grid-cols-[1.3fr_1fr]' : 'grid-cols-1']}>
+      <div>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-slate-200">
+          {tag}
+        </span>
+        <h2 class="mt-4 max-w-xl text-2xl font-bold leading-snug text-white sm:text-3xl lg:text-[2.1rem]">
+          <Fragment set:html={title} />
+        </h2>
+
+        <ul class="mt-5 flex flex-wrap gap-x-8 gap-y-3">
+          {features.map((f) => (
+            <li class="flex items-center gap-2 text-sm font-medium text-slate-200">
+              {f.icon ? (
+                <img src={f.icon} alt="" width="28" height="28" class="h-7 w-7" aria-hidden="true" loading="lazy" />
+              ) : (
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-brand-500/30 text-teal" aria-hidden="true">
+                  <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+              )}
+              {f.label}
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <Button href="#get-started" variant="yellow" size="md">{primaryLabel}</Button>
+          {secondaryLabel && <Button href="#contact" variant="outline-light" size="md">{secondaryLabel}</Button>}
+        </div>
+
+        {note && <p class="mt-5 max-w-xl text-sm leading-relaxed text-slate-400" set:html={note} />}
+        {description && !note && <p class="mt-5 max-w-xl text-sm leading-relaxed text-slate-300">{description}</p>}
+      </div>
+
+      {image && (
+        <div class="overflow-hidden rounded-xl shadow-2xl ring-1 ring-white/10">
+          <img src={image} alt={imageAlt} class="h-auto w-full object-cover object-left-top" loading="lazy" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

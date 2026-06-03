@@ -1,0 +1,90 @@
+---
+const logos = [
+  { src: '/assets/trusted/synlab.svg', name: 'SynLab' },
+  { src: '/assets/trusted/busha.svg', name: 'Busha' },
+  { src: '/assets/trusted/geneith.svg', name: 'Geneith' },
+  { src: '/assets/trusted/flutterwave.svg', name: 'Flutterwave' },
+  { src: '/assets/trusted/wilan.svg', name: 'Wilan' },
+  { src: '/assets/trusted/rise.svg', name: 'Rise' },
+  { src: '/assets/trusted/mainstack.svg', name: 'Mainstack' },
+  { src: '/assets/trusted/helium-health.svg', name: 'Helium Health' },
+  { src: '/assets/trusted/redeemer.svg', name: 'Redeemer Health Village' },
+  { src: '/assets/trusted/max.svg', name: 'Max' },
+];
+---
+
+<section class="bg-hero px-6 pt-14 pb-10 lg:px-8 lg:pt-16">
+  <div class="mx-auto max-w-3xl text-center">
+    <h1 class="text-[2.1rem] font-extrabold leading-[1.1] tracking-tight text-navy-900 sm:text-5xl lg:text-[3.4rem]">
+      We make <span class="text-brand">HR &amp; Payroll</span> work across borders
+    </h1>
+    <p class="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-slate-500">
+      Streamline your HR &amp; Payroll tasks and workflows to efficiently manage your local and
+      global team, run payroll on time (in multiple currencies), and automate compliance — all
+      with HR Junkie. It's HR &amp; Payroll made easy, wherever your business takes you.
+    </p>
+
+    <form
+      action="#get-started"
+      method="post"
+      class="mx-auto mt-7 flex max-w-md items-center gap-2 rounded-full border border-slate-200 bg-white p-1.5 shadow-sm"
+    >
+      <label for="hero-email" class="sr-only">Work email</label>
+      <input
+        id="hero-email"
+        type="email"
+        name="email"
+        placeholder="What's your work email?"
+        required
+        class="min-w-0 flex-1 bg-transparent px-4 text-sm text-navy-900 placeholder:text-slate-400 focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="shrink-0 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700"
+      >
+        Book a Demo
+      </button>
+    </form>
+  </div>
+
+  <div class="mx-auto mt-12 max-w-4xl">
+    <a
+      href="#demo"
+      class="group relative block overflow-hidden rounded-2xl shadow-2xl shadow-navy-900/30"
+      aria-label="Play Cross Border by HR Junkie video"
+    >
+      <img
+        src="/images/cross-border-hero.png"
+        alt="Cross Border by HR Junkie — global payroll visualization with world map and currency arcs"
+        class="h-auto w-full object-cover"
+        width="1200"
+        height="675"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <span class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+        <span class="flex h-16 w-[88px] items-center justify-center rounded-2xl bg-[#ff2d20] shadow-xl transition group-hover:scale-105">
+          <svg class="ml-1 h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </span>
+      </span>
+    </a>
+  </div>
+
+  <div class="mx-auto mt-12 max-w-6xl text-center">
+    <p class="text-sm font-semibold text-brand-600">Trusted and Used by:</p>
+    <ul class="mt-7 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+      {logos.map((logo) => (
+        <li>
+          <img
+            src={logo.src}
+            alt={logo.name}
+            class="h-7 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0 sm:h-8"
+            loading="lazy"
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

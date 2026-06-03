@@ -1,0 +1,64 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const cards = [
+  {
+    title: 'Efficient & Reliable Local & Global Payroll Solutions',
+    description:
+      'Our payroll solution is built to support your team locally and globally, ensuring seamless, on-time payments wherever your employees are.',
+    mock: 'payroll',
+  },
+  {
+    title: 'HR Tasks & Workflows on Autopilot',
+    description:
+      'Streamline and automate time-consuming HR tasks and workflows from ATS, Onboarding and Leave Requests to Reports, Insights and Off-boarding.',
+    mock: '/assets/cards/tasks.svg',
+  },
+  {
+    title: 'Reliable Remittances, done on time',
+    description:
+      'We go beyond just running your payroll, we calculate your taxes and pensions, and we file them with the right government agencies on time!',
+    mock: '/assets/cards/reliable-remittances.svg',
+  },
+  {
+    title: 'Easy Employee Benefits Administration',
+    description:
+      'Set up and manage statutory and custom benefits like medical insurance, pension, housing etc in a breeze with our configurable options.',
+    mock: '/assets/cards/benefits.svg',
+  },
+];
+---
+
+<section id="platform" class="bg-white px-6 py-20 lg:px-8 lg:py-24">
+  <div class="mx-auto max-w-7xl">
+    <SectionHeading
+      eyebrow="Putting your business ahead"
+      title='Everything your HR needs to succeed, in <span class="text-brand">one place.</span>'
+      subtitle="Unlock the full potential of your team and drive business success with our innovative solutions that make work simple and lives better."
+      singleButton="Talk to a Product Specialist"
+    />
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      {cards.map((card) => (
+        <article class="flex flex-col overflow-hidden rounded-2xl border border-card-border bg-card p-7">
+          <h3 class="text-lg font-bold text-brand-600">{card.title}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-500">{card.description}</p>
+
+          <div class="mt-6 flex-1">
+            {card.mock === 'payroll' ? (
+              <div class="space-y-3" aria-hidden="true">
+                <div class="grid grid-cols-2 gap-3">
+                  <img src="/assets/cards/global-next-payroll.svg" alt="" class="w-full" loading="lazy" />
+                  <img src="/assets/cards/global-total-salary.svg" alt="" class="w-full" loading="lazy" />
+                </div>
+                <img src="/assets/cards/global-charts.svg" alt="" class="w-full" loading="lazy" />
+              </div>
+            ) : (
+              <img src={card.mock} alt="" class="w-full" loading="lazy" aria-hidden="true" />
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'yellow' | 'outline' | 'outline-light';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  withArrow?: boolean;
+}
+
+const {
+  href = '#',
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  withArrow = false,
+} = Astro.props;
+
+const variants = {
+  primary: 'bg-brand-600 text-white hover:bg-brand-700 shadow-sm shadow-brand-600/30',
+  yellow: 'bg-accent-yellow text-navy-950 hover:bg-accent-yellow-hover font-bold',
+  outline: 'border border-brand-600 text-brand-600 hover:bg-brand-600/5 bg-white',
+  'outline-light': 'border border-white/40 text-white hover:bg-white/10 bg-transparent',
+};
+
+const sizes = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-5 py-2.5 text-sm font-semibold',
+  lg: 'px-7 py-3 text-[15px] font-semibold',
+};
+
+const classes = `inline-flex items-center justify-center gap-2 rounded-lg transition-colors ${variants[variant]} ${sizes[size]} ${className}`;
+---
+
+<a href={href} class={classes}>
+  <slot />
+  {withArrow && (
+    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+  )}
+</a>

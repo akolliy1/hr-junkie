@@ -1,0 +1,14 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+  class?: string;
+}
+const { variant = 'dark', class: className = '' } = Astro.props;
+const textColor = variant === 'light' ? 'text-white' : 'text-navy-900';
+const markFilter = variant === 'light' ? 'brightness-0 invert' : '';
+---
+
+<a href="/" class={`inline-flex items-center gap-2 ${className}`} aria-label="HR Junkie home">
+  <img src="/assets/logo.svg" alt="" width="40" height="16" class={`h-5 w-auto ${markFilter}`} />
+  <span class={`text-xl font-extrabold tracking-tight ${textColor}`}>HR Junkie</span>
+</a>

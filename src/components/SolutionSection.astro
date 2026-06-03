@@ -1,0 +1,54 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import IconCards from './IconCards.astro';
+
+interface Card {
+  title: string;
+  description: string;
+  icon: string;
+  badge?: string;
+}
+
+interface Props {
+  id?: string;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  imageAlt: string;
+  imagePosition?: string;
+  cards: Card[];
+  cardCols?: 3 | 6;
+  extraLink?: string;
+}
+
+const { id, eyebrow, title, subtitle, image, imageAlt, imagePosition = 'center', cards, cardCols = 3, extraLink } = Astro.props;
+---
+
+<section id={id} class="bg-white px-6 py-16 lg:px-8 lg:py-20">
+  <div class="mx-auto max-w-7xl">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={title}
+      subtitle={subtitle}
+      primaryLabel="Book a Demo"
+      secondaryLabel="Learn More"
+    />
+
+    <div class="mt-12 overflow-hidden rounded-2xl">
+      <img src={image} alt={imageAlt} class="h-auto max-h-[600px] w-full object-cover" style={`object-position: ${imagePosition};`} width="1280" height="560" loading="lazy" />
+    </div>
+
+    <div class="mx-auto max-w-5xl">
+      <IconCards cards={cards} cols={cardCols} />
+    </div>
+
+    {extraLink && (
+      <div class="mt-8 text-center">
+        <a href="#platform" class="inline-block rounded-lg border border-brand-600 px-5 py-2.5 text-sm font-semibold text-brand-600 transition hover:bg-brand-600/5">
+          {extraLink}
+        </a>
+      </div>
+    )}
+  </div>
+</section>

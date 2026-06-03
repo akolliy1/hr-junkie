@@ -1,0 +1,41 @@
+---
+const articles = [
+  {
+    category: 'Inside HR Junkie',
+    title: 'The Out of Office Pod: From Twitter Space to a Podcast!',
+    image: '/assets/resources/inside.svg',
+  },
+  {
+    category: 'Product Updates',
+    title: 'HR Junkie Wallet for Employees: Endless Possibilities',
+    image: '/assets/resources/updates.svg',
+  },
+  {
+    category: 'HR & Payroll Insights',
+    title: 'Introducing Cross Border by HR Junkie: Our Next Step in Financial Freedom',
+    image: '/assets/resources/insights.svg',
+  },
+];
+---
+
+<section id="resources" class="bg-white px-6 py-16 lg:px-8 lg:py-20">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-2xl border-b border-slate-200 pb-5 text-center">
+      <h2 class="text-2xl font-bold tracking-tight text-brand-600 sm:text-3xl">
+        Resources to help you get started
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {articles.map((article) => (
+        <article class="overflow-hidden rounded-2xl border border-card-border bg-card transition hover:shadow-md">
+          <img src={article.image} alt="" class="h-44 w-full object-cover object-top" loading="lazy" />
+          <div class="p-6">
+            <p class="eyebrow">{article.category}</p>
+            <h3 class="mt-2 font-bold leading-snug text-navy-900">{article.title}</h3>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

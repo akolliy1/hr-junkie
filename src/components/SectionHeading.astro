@@ -1,0 +1,48 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  singleButton?: string;
+  singleVariant?: 'primary' | 'outline';
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  primaryLabel,
+  primaryHref = '#get-started',
+  secondaryLabel,
+  secondaryHref = '#learn-more',
+  singleButton,
+  singleVariant = 'primary',
+} = Astro.props;
+---
+
+<div class="mx-auto max-w-2xl text-center">
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-navy-900 sm:text-[2.5rem]">
+    <Fragment set:html={title} />
+  </h2>
+  {subtitle && <p class="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-500">{subtitle}</p>}
+
+  {(primaryLabel || secondaryLabel || singleButton) && (
+    <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+      {singleButton ? (
+        <Button href={primaryHref} variant={singleVariant} size="md">{singleButton}</Button>
+      ) : (
+        <>
+          {primaryLabel && <Button href={primaryHref} size="md">{primaryLabel}</Button>}
+          {secondaryLabel && <Button href={secondaryHref} variant="outline" size="md">{secondaryLabel}</Button>}
+        </>
+      )}
+    </div>
+  )}
+</div>

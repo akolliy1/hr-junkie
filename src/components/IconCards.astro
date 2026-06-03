@@ -1,0 +1,33 @@
+---
+interface Card {
+  title: string;
+  description: string;
+  icon: string;
+  badge?: string;
+}
+
+interface Props {
+  cards: Card[];
+  cols?: 3 | 6;
+}
+
+const { cards, cols = 3 } = Astro.props;
+const gridCols = cols === 6 ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-3';
+---
+
+<div class:list={['mt-12 grid gap-5', gridCols]}>
+  {cards.map((card) => (
+    <article class="relative rounded-2xl border border-card-border bg-card p-6">
+      {card.badge && (
+        <span class="absolute right-4 top-4 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
+          {card.badge}
+        </span>
+      )}
+      <div class="flex h-16 w-16 items-center justify-center rounded-full bg-icon-disc" aria-hidden="true">
+        <img src={card.icon} alt="" width="44" height="44" class="h-10 w-10" loading="lazy" />
+      </div>
+      <h3 class="mt-4 font-bold text-brand-600">{card.title}</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-500">{card.description}</p>
+    </article>
+  ))}
+</div>
