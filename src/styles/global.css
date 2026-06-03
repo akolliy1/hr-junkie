@@ -14,7 +14,7 @@
   --color-card-border: #e3ecfb;
   --color-icon-disc: #ebf2ff;
   --color-hero: #f1f5fe;
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: Verdana, Geneva, "DejaVu Sans", Tahoma, sans-serif;
 }
 
 html {

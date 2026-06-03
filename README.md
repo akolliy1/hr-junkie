@@ -8,7 +8,7 @@ A lightweight, SEO-friendly marketing site for **HR Junkie**, converted from the
 
 - **[Astro](https://astro.build)** — ships zero JavaScript by default; static HTML for excellent SEO and performance
 - **Tailwind CSS v4** — utility styling aligned with the Figma navy/blue palette
-- **Plus Jakarta Sans** — modern sans-serif typography
+- **Verdana** — web-safe system sans-serif (no external font fetch)
 
 ## Getting started
 
