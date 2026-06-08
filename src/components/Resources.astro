@@ -29,7 +29,7 @@ const articles = [
     <div class="mt-12 grid gap-6 md:grid-cols-3">
       {articles.map((article) => (
         <article class="overflow-hidden rounded-2xl border border-card-border bg-card transition hover:shadow-md">
-          <img src={article.image} alt="" class="h-44 w-full object-cover object-top" loading="lazy" decoding="async" />
+          <img src={article.image} alt="" class="h-44 w-full object-cover object-[center_0]" loading="lazy" decoding="async" />
           <div class="p-6">
             <p class="eyebrow">{article.category}</p>
             <h3 class="mt-2 font-bold leading-snug text-navy-900">{article.title}</h3>
